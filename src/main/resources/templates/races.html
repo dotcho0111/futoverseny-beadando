@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Futóversenyek</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 50%; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .form-box { border: 1px solid #ccc; padding: 15px; width: 300px; }
+    </style>
+</head>
+<body>
+    <h1>Futóversenyek listája</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Táv (km)</th>
+                <th>Művelet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="race : ${races}">
+                <td th:text="${race.name}">Verseny neve</td>
+                <td th:text="${race.distance}">5.0</td>
+                <td><a th:href="@{/races/{id}(id=${race.id})}">Részletek</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-box">
+        <h3>Új verseny hozzáadása</h3>
+        <form th:action="@{/races/save}" method="post">
+            <label>Név:</label><br>
+            <input type="text" name="name" required><br><br>
+            <label>Távolság (km):</label><br>
+            <input type="number" step="0.1" name="distance" required><br><br>
+            <button type="submit">Létrehozás</button>
+        </form>
+    </div>
+</body>
+</html>

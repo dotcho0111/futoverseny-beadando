@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Verseny részletek</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .back-link { display: inline-block; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <a href="/races" class="back-link">← Vissza a listához</a>
+    
+    <h1 th:text="${race.name} + ' részletei'">Verseny neve</h1>
+    <p><strong>Távolság:</strong> <span th:text="${race.distance}">0</span> km</p>
+
+    <h3>Eredmények (idő szerint növekvő):</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Futó neve</th>
+                <th>Időeredmény (perc)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="res : ${results}">
+                <td th:text="${res.runner.name}">Futó</td>
+                <td th:text="${res.time}">0.0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
