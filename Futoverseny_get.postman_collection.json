@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "4832baae-d886-403c-94ab-ff1b3d7daeae",
+		"name": "Futoverseny",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26664235"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/addRunner",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Gáspár Benedek\",\r\n    \"age\": 24,\r\n    \"gender\": \"Férfi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/getRunners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getRunners"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
